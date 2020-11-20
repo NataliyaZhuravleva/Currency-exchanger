@@ -1,9 +1,5 @@
-export default class TODO {
-  constructor(prop1, prop2) {
-    this.prop1=prop1;
-    this.prop2=prop2;
-  }
-
-  calculateTODO(todo) {
-  
+export default class CurrencyService {
+  static async getCurrency(currency) {
+  const currencyResponse = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`);
+  return currencyResponse.json();
 }
