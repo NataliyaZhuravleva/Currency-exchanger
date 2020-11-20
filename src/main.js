@@ -18,7 +18,9 @@ function clearFields() {
 
 function getElements(amount, currency, response) {
   if (response.conversion_rates) {
-    if (response.conversion_rates.hasOwnProperty.call('`${currency}`')) {
+    let check = hasOwnProperty.call(response.conversion_rates, `${currency}`);
+    console.log(check);
+    if (check) {
       let result = 0;
       if (currency === "EUR") {
         result = convert(amount, response.conversion_rates.EUR);
@@ -44,8 +46,9 @@ function getElements(amount, currency, response) {
 $(document).ready(function () {
   $('#convert').click(function () {
     let amount = $('#amount').val();
-  
-    let currencyType = $('#currency').val();
+
+    //let currencyType = $('#currency').val();
+    let currencyType="ABC";
     clearFields();
 
 
