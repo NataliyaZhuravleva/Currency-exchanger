@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>Currency Exchanger</title>
+</head>
+
+</html>
+
+<body>
+  <div class="container">
+    <h1>Convert Currency</h1>
+    <label for="amount">Enter amount (US dollars):</label>
+    <input id="amount" type="text">
+    <div class="form-group">
+      <label for="currencies">Please, choose currency you want to convert to:</label>
+      <select class="form-control" id="currencies">
+        <option value="EUR">EUR: Euro Member Countries</option>
+        <option value="RUB">RUB: Russia Ruble</option>
+        <option value="CAD">CAD: Canada Dollar</option>
+        <option value="MXN">MXN: Mexico Peso</option>
+        <option value="SEK">SEK: Sweden Krona</option>
+      </select>
+      <button class="btn-success" id="convert">Convert</button>
+      <div class="showConvertedAmount"></div>
+      <div class="showErrors"></div>
+    </div>
+  </div>
+</body>
