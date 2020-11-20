@@ -5,6 +5,7 @@ export default class CurrencyService {
       if (!currencyResponse.ok) {
         throw Error(currencyResponse.statusText);
       }
+      console.log(currencyResponse);
       return currencyResponse.json();
     } catch (error) {
       return error.message;

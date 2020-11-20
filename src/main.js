@@ -1,12 +1,11 @@
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '.css/styles.css';
-import CurrencyService from '.js/exchanger';
+import '../src/css/styles.css';
+import CurrencyService from '../src/js/exchanger';
 
 function convert(amount, currency) {
-  const result = parseFloat(amount) * parseFloat(currency);
-  return result;
+  parseFloat(amount) * parseFloat(currency);
 }
 
 function clearFields() {
@@ -16,12 +15,17 @@ function clearFields() {
   $('.showErrors').text("");
 }
 
-function getElements(amount, response) {
+function getElements(amount, currency, response) {
+  console.log(amount);
+  console.log(currency);
+  console.log(response);
   if (response.conversion_rates) {
-    if (currencyType = "EUR") {
-      convert(amount, response.conversion_rates.EUR)
+    if (currency === "EUR") {
+      console.log(currency);
+      const result = convert(amount, response.conversion_rates.EUR);
+      $('.showConvertedAmount').text(`${amount} USD in ${currency} is ${result}`);
     } else {
-      $('showErrors').text(`There was an error: ${response}`);
+      $('.showErrors').text(`There was an error: ${response}`);
     }
   }
 }
@@ -31,10 +35,13 @@ $(document).ready(function () {
     let amount = $('#amount').val();
     let currencyType = $('#currency').val();
     clearFields();
-    (async function () {
-      const currencyResponse = await CurrencyService.getCurrency();
-      getElements(amount, currencyResponse);
-    });
+
+
+    CurrencyService.getCurrency()
+      .then(function (currencyResponse) {
+        getElements(amount, currencyType, currencyResponse);
+      });
 
 
   });
+});
