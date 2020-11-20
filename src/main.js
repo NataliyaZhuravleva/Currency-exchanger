@@ -5,7 +5,7 @@ import '../src/css/styles.css';
 import CurrencyService from '../src/js/exchanger';
 
 function convert(amount, currency) {
-  parseFloat(amount) * parseFloat(currency);
+  return parseFloat(amount) * parseFloat(currency);
 }
 
 function clearFields() {
@@ -16,19 +16,26 @@ function clearFields() {
 }
 
 function getElements(amount, currency, response) {
-  console.log(amount);
-  console.log(currency);
-  console.log(response);
+
   if (response.conversion_rates) {
+    let result=0;
     if (currency === "EUR") {
-      console.log(currency);
-      const result = convert(amount, response.conversion_rates.EUR);
-      $('.showConvertedAmount').text(`${amount} USD in ${currency} is ${result}`);
-    } else {
-      $('.showErrors').text(`There was an error: ${response}`);
+      result = convert(amount, response.conversion_rates.EUR);
+    } else if (currency === "RUB") {
+      result = convert(amount, response.conversion_rates.RUB);
+    } else if (currency === "CAD") {
+      result = convert(amount, response.conversion_rates.CAD);
+    } else if (currency === "MXN") {
+      result = convert(amount, response.conversion_rates.MXN);
+    } else if (currency === "SEK") {
+      result = convert(amount, response.conversion_rates.SEK);
     }
+    $('.showConvertedAmount').text(`${amount} USD in ${currency} is ${result}`);
+  } else {
+    $('.showErrors').text(`There was an error: ${response}`);
   }
 }
+
 
 $(document).ready(function () {
   $('#convert').click(function () {
