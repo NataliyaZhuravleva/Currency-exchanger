@@ -19,7 +19,6 @@ function clearFields() {
 function getElements(amount, currency, response) {
   if (response.conversion_rates) {
     let check = hasOwnProperty.call(response.conversion_rates, `${currency}`);
-    console.log(check);
     if (check) {
       let result = 0;
       if (currency === "EUR") {
@@ -33,9 +32,9 @@ function getElements(amount, currency, response) {
       } else if (currency === "SEK") {
         result = convert(amount, response.conversion_rates.SEK);
       }
-      $('.showConvertedAmount').text(`${amount} USD in ${currency} is ${result}`);
+      $('.showConvertedAmount').text(`${amount}USD = ${result}${currency}`);
     } else {
-      $('.showCurrencyError').text(`We don't have an information about ${currency}`);
+      $('.showCurrencyError').text(`We don't have information about currency you entered. Please, choose currency from the list above.`);
     }
   } else {
     $('.showErrors').text(`There was an error: ${response}`);
@@ -46,17 +45,12 @@ function getElements(amount, currency, response) {
 $(document).ready(function () {
   $('#convert').click(function () {
     let amount = $('#amount').val();
-
-    //let currencyType = $('#currency').val();
-    let currencyType="ABC";
+    let currencyType = $('#currency').val();
     clearFields();
-
-
+    
     CurrencyService.getCurrency()
       .then(function (currencyResponse) {
         getElements(amount, currencyType, currencyResponse);
       });
-
-
   });
 });
