@@ -42,7 +42,6 @@ function getElements(amount, currency, response) {
   }
 }
 
-
 $(document).ready(function () {
   $('#convert').click(function () {
     let amount = $('#amount').val();
@@ -54,7 +53,7 @@ $(document).ready(function () {
           getElements(amount, currencyType, currencyResponse);
         });
     } else {
-      $('.showAmountWarning').text("Please enter amount (US Dollars) you want to convert");
+      $('.showAmountWarning').text("Please enter amount (US Dollars) you want to convert.");
     }
   });
 });

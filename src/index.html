@@ -9,8 +9,8 @@
 
 <body>
   <div class="container">
-    <h1>Convert Currency</h1>
-    <label for="amount">Enter amount (US dollars):</label>
+    <h1>Currency Converter</h1>
+    <label for="amount">Enter amount in USD (US Dollars): $</label>
     <input id="amount" type="number">
 
     <div class="form-group">
@@ -23,12 +23,12 @@
         <option value="MXN">MXN: Mexico Peso</option>
         <option value="SEK">SEK: Sweden Krona</option>
       </select>
-      <button class="btn-success" id="convert">Convert</button>
+      <button class="btn" id="convert">Convert</button>
     
-      <div class="showConvertedAmount"></div>
-      <div class="showAmountWarning"></div>
-      <div class="showCurrencyError"></div>
-      <div class="showErrors"></div>
+      <h2><div class="showConvertedAmount"></div></h2>
+      <h2><div class="showAmountWarning"></div></h2>
+      <h2><div class="showCurrencyError"></div></h2>
+      <h2><div class="showErrors"></div></h2>
     </div>
   </div>
 </body>
