@@ -10,7 +10,6 @@ function convert(amount, currency) {
 
 function clearFields() {
   $('#amount').val("");
-  $('#currency').val("noChoosen");
   $('.showConvertedAmount').text("");
   $('.showAmountWarning').text("");
   $('.showCurrencyError').text("");
