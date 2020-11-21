@@ -11,8 +11,8 @@
   <div class="container">
     <h1>Convert Currency</h1>
     <label for="amount">Enter amount (US dollars):</label>
-    <input id="amount" type="text">
-    
+    <input id="amount" type="number">
+
     <div class="form-group">
       <label for="currencies">Please, choose currency you want to convert:</label>
       <select class="form-control" id="currency">
@@ -26,6 +26,7 @@
       <button class="btn-success" id="convert">Convert</button>
     
       <div class="showConvertedAmount"></div>
+      <div class="showAmountWarning"></div>
       <div class="showCurrencyError"></div>
       <div class="showErrors"></div>
     </div>
