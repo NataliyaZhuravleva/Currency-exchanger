@@ -5,7 +5,7 @@ import '../src/css/styles.css';
 import CurrencyService from '../src/js/exchanger';
 
 function convert(amount, currency) {
-  return parseFloat(amount) * parseFloat(currency).toFixed(2);
+  return (parseFloat(amount) * parseFloat(currency)).toFixed(2);
 }
 
 function clearFields() {
