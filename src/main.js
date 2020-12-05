@@ -37,7 +37,7 @@ function getElements(amount, currency, response) {
       $('.showCurrencyError').text(`We don't have information about currency you entered or you didn't choose any currency. Please, choose currency from the list above.`);
     }
   } else {
-    $('.showErrors').text(`There was an error: ${response}`);
+    $('.showErrors').text(`There was a  error on server: ${response["error-type"]}`);
   }
 }
 
@@ -46,13 +46,13 @@ $(document).ready(function () {
     let amount = $('#amount').val();
     let currencyType = $('#currency').val();
     clearFields();
-    if (amount) {
+    if (amount>0) {
       CurrencyService.getCurrency()
         .then(function (currencyResponse) {
           getElements(amount, currencyType, currencyResponse);
         });
     } else {
-      $('.showAmountWarning').text("Please enter amount (US Dollars) you want to convert.");
+      $('.showAmountWarning').text("Please enter positive amount(US Dollars) you want to convert.");
     }
   });
 });

@@ -9,26 +9,34 @@
 
 <body>
   <div class="container">
-    <h1>Currency Converter</h1>
-    <label for="amount">Enter amount in USD (US Dollars): $</label>
-    <input id="amount" type="number">
+      <h1>Currency Converter</h1>
+      <label for="amount">Enter amount in USD (US Dollars): $</label>
+      <input id="amount" type="number">
 
-    <div class="form-group">
-      <label for="currencies">Please, choose currency you want to convert:</label>
-      <select class="form-control" id="currency">
-        <option value="noChoosen">--</option>
-        <option value="EUR">EUR: Euro Member Countries</option>
-        <option value="RUB">RUB: Russia Ruble</option>
-        <option value="CAD">CAD: Canada Dollar</option>
-        <option value="MXN">MXN: Mexico Peso</option>
-        <option value="SEK">SEK: Sweden Krona</option>
-      </select>
-      <button class="btn" id="convert">Convert</button>
-    
-      <h2><div class="showConvertedAmount"></div></h2>
-      <h2><div class="showAmountWarning"></div></h2>
-      <h2><div class="showCurrencyError"></div></h2>
-      <h2><div class="showErrors"></div></h2>
-    </div>
+      <div class="form-group">
+        <label for="currencies">Please, choose currency you want to convert:</label>
+        <select class="form-control" id="currency">
+          <option value="noChoosen">--</option>
+          <option value="EUR">EUR: Euro Member Countries</option>
+          <option value="RUB">RUB: Russia Ruble</option>
+          <option value="CAD">CAD: Canada Dollar</option>
+          <option value="MXN">MXN: Mexico Peso</option>
+          <option value="SEK">SEK: Sweden Krona</option>
+        </select>
+        <button class="btn" id="convert">Convert</button>
+
+        <h2>
+          <div class="showConvertedAmount"></div>
+        </h2>
+        <h2>
+          <div class="showAmountWarning"></div>
+        </h2>
+        <h2>
+          <div class="showCurrencyError"></div>
+        </h2>
+        <h2>
+          <div class="showErrors"></div>
+        </h2>
+      </div>
   </div>
 </body>
